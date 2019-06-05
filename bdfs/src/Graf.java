@@ -33,9 +33,9 @@ class Graf {
     }
     private void DFS(int w, boolean[] sz) {
         sz[w] = true;
-        System.out.print(ConsoleColors.CYAN_BOLD + w + " " + ConsoleColors.RESET);
+        System.out.print(ConsoleColors.CYAN_BOLD + (w+1) + " " + ConsoleColors.RESET);
         for (int n : (Iterable<Integer>) listaS[w]) if (!sz[n]) {
-            System.out.print(ConsoleColors.YELLOW + "[" + w + "->" + n + "] " + ConsoleColors.RESET);
+            System.out.print(ConsoleColors.YELLOW + "[" + (w+1) + "->" + (n+1) + "] " + ConsoleColors.RESET);
             DFS(n, sz);
         }
     }
@@ -52,9 +52,9 @@ class Graf {
         queue.add(w);
         while (queue.size() != 0) {
             w = queue.poll();
-            System.out.print(ConsoleColors.CYAN_BOLD + w +" " + ConsoleColors.RESET);
+            System.out.print(ConsoleColors.CYAN_BOLD + (w+1) +" " + ConsoleColors.RESET);
             for (int n : (Iterable<Integer>) listaS[w]) if (!sz[n]) {
-                    System.out.print(ConsoleColors.YELLOW + "[" + w + "->" + n + "] " + ConsoleColors.RESET);
+                    System.out.print(ConsoleColors.YELLOW + "[" + (w+1) + "->" + (n+1) + "] " + ConsoleColors.RESET);
                     sz[n] = true;
                     queue.add(n);
             }
@@ -63,7 +63,7 @@ class Graf {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        Scanner scanner = new Scanner(new File("graf1.txt"));
+        Scanner scanner = new Scanner(new File("graf2.txt"));
         int liczbaW = scanner.nextInt();
         int[][] macierz = new int[liczbaW][liczbaW];
         for(int i=0; i < liczbaW; i++) for (int j=0; j < liczbaW; j++) macierz[i][j] = scanner.nextInt();
